@@ -16,6 +16,7 @@
     "prepack": "yarn build && oclif manifest && oclif readme",
     "prepare": "yarn build",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
+    "test:reset": "rm -rf ./npm/**/*.node & rm -rf ./test/**/*.node",
     "version": "oclif readme && git add README.md"
   },
   "dependencies": {
