@@ -114,7 +114,7 @@ type NodeJSArch =
   | 'universal'
   | 'wasm32'
 
-export type Platform = NodeJS.Platform | 'wasm' | 'wasi'
+export type Platform = NodeJS.Platform
 
 const SysToNodePlatform: Record<string, Platform> = {
   linux: 'linux',
@@ -140,15 +140,6 @@ export interface Target {
 }
 
 export function parseTriple(rawTriple: string): Target {
-  if (rawTriple === 'wasm32-wasi-preview1-threads') {
-    return {
-      triple: rawTriple,
-      platformArchABI: 'wasm32-wasi',
-      platform: 'wasi',
-      arch: 'wasm32',
-      abi: 'wasi',
-    }
-  }
   const triple = rawTriple.endsWith('eabi') ? `${rawTriple.slice(0, -4)}-eabi` : rawTriple
   const triples = triple.split('-')
   let cpu: string

@@ -66,18 +66,6 @@ async function collectArtifacts(userOptions: TUserOptions) {
     console.info(`Write file content to [${distFilePathLocal}]`)
     writeFileSync(distFilePathLocal, sourceContent)
   })
-
-  const wasiTarget = targets.find((t) => t.platform === 'wasi')
-
-  if (wasiTarget) {
-    const wasiDir = join(options.cwd, options.npmDir, wasiTarget.platformArchABI)
-    const cjsFile = join(options.buildOutputDir ?? options.cwd, `${binaryName}.wasi.cjs`)
-    const workerFile = join(options.buildOutputDir ?? options.cwd, `wasi-worker.mjs`)
-    console.info(`Move wasi cjs file [${cjsFile}] to [${wasiDir}]`)
-    writeFileSync(join(wasiDir, `${binaryName}.wasi.cjs`), readFileSync(cjsFile))
-    console.info(`Move wasi worker file [${workerFile}] to [${wasiDir}]`)
-    writeFileSync(join(wasiDir, `wasi-worker.mjs`), readFileSync(workerFile))
-  }
 }
 
 export default class Artifacts extends Command {
@@ -95,10 +83,6 @@ artifacts successfully processed!
       default: process.cwd(),
       description: 'The working directory of where napi command will be executed in',
     }),
-    'config-path': Flags.string({
-      char: 'c',
-      description: 'Path to `napi` config json file',
-    }),
     'package-json-path': Flags.string({
       description: 'Path to `package.json`',
       default: 'package.json',
@@ -112,9 +96,6 @@ artifacts successfully processed!
       description: 'Path to the folder where the npm packages put',
       default: 'npm',
     }),
-    'build-output-dir': Flags.string({
-      description: 'Path to the build output dir, only needed when targets contains `wasm32-wasi-*`',
-    }),
   }
 
   async run(): Promise<void> {
@@ -123,19 +104,15 @@ artifacts successfully processed!
     const options = flags
 
     const cwd = options.cwd || process.cwd()
-    const configPath = options.configPath
-    const packageJsonPath = options.packageJsonPath || 'package.json'
-    const outputDir = options.outputDir || './artifacts'
-    const npmDir = options.npmDir || 'npm'
-    const buildOutputDir = options.buildOutputDir
+    const packageJsonPath = options['package-json-path'] || 'package.json'
+    const outputDir = options['output-dir'] || './artifacts'
+    const npmDir = options['npm-dir'] || 'npm'
 
     await collectArtifacts({
       cwd: cwd,
-      configPath: configPath,
       packageJsonPath: packageJsonPath,
       outputDir: outputDir,
       npmDir: npmDir,
-      buildOutputDir: buildOutputDir,
     })
 
     this.log(`hello ${flags.from}! (./src/commands/artifacts/index.ts)`)

@@ -7,7 +7,7 @@
       "name": "Execute Command",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/bin/dev",
-      "args": ["hello", "world"]
+      "args": ["artifacts", "--package-json-path=test/commands/artifacts/package.json"]
     }
   ]
 }
