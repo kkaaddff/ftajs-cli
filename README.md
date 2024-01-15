@@ -7,48 +7,43 @@ ftajs cli
 [![GitHub license](https://img.shields.io/github/license/oclif/hello-world)](https://github.com/oclif/hello-world/blob/main/LICENSE)
 
 <!-- toc -->
-
-- [ftajs cli](#ftajs-cli)
-- [Usage](#usage)
-- [Commands](#commands)
+* [ftajs cli](#ftajs-cli)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g @ftajs/cli
 $ ftajs COMMAND
 running command...
 $ ftajs (--version)
-@ftajs/cli/0.0.0 darwin-arm64 node-v18.17.1
+@ftajs/cli/0.0.1 darwin-arm64 node-v18.17.1
 $ ftajs --help [COMMAND]
 USAGE
   $ ftajs COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
-- [`ftajs artifacts`](#ftajs-artifacts)
-- [`ftajs hello PERSON`](#ftajs-hello-person)
-- [`ftajs hello world`](#ftajs-hello-world)
-- [`ftajs help [COMMANDS]`](#ftajs-help-commands)
-- [`ftajs plugins`](#ftajs-plugins)
-- [`ftajs plugins:install PLUGIN...`](#ftajs-pluginsinstall-plugin)
-- [`ftajs plugins:inspect PLUGIN...`](#ftajs-pluginsinspect-plugin)
-- [`ftajs plugins:install PLUGIN...`](#ftajs-pluginsinstall-plugin-1)
-- [`ftajs plugins:link PLUGIN`](#ftajs-pluginslink-plugin)
-- [`ftajs plugins:uninstall PLUGIN...`](#ftajs-pluginsuninstall-plugin)
-- [`ftajs plugins reset`](#ftajs-plugins-reset)
-- [`ftajs plugins:uninstall PLUGIN...`](#ftajs-pluginsuninstall-plugin-1)
-- [`ftajs plugins:uninstall PLUGIN...`](#ftajs-pluginsuninstall-plugin-2)
-- [`ftajs plugins update`](#ftajs-plugins-update)
+* [`ftajs artifacts`](#ftajs-artifacts)
+* [`ftajs hello PERSON`](#ftajs-hello-person)
+* [`ftajs help [COMMANDS]`](#ftajs-help-commands)
+* [`ftajs plugins`](#ftajs-plugins)
+* [`ftajs plugins:install PLUGIN...`](#ftajs-pluginsinstall-plugin)
+* [`ftajs plugins:inspect PLUGIN...`](#ftajs-pluginsinspect-plugin)
+* [`ftajs plugins:install PLUGIN...`](#ftajs-pluginsinstall-plugin-1)
+* [`ftajs plugins:link PLUGIN`](#ftajs-pluginslink-plugin)
+* [`ftajs plugins:uninstall PLUGIN...`](#ftajs-pluginsuninstall-plugin)
+* [`ftajs plugins reset`](#ftajs-plugins-reset)
+* [`ftajs plugins:uninstall PLUGIN...`](#ftajs-pluginsuninstall-plugin-1)
+* [`ftajs plugins:uninstall PLUGIN...`](#ftajs-pluginsuninstall-plugin-2)
+* [`ftajs plugins update`](#ftajs-plugins-update)
 
 ## `ftajs artifacts`
 
@@ -56,17 +51,24 @@ USAGE
 
 ```
 USAGE
-  $ ftajs artifacts
+  $ ftajs artifacts [-c <value>] [--package-json-path <value>] [-o <value>] [--npm-dir <value>]
+
+FLAGS
+  -c, --cwd=<value>                [default: /Users/qiczhang/Documents/ymm2021/fta/cli-ftajs] The working directory of
+                                   where napi command will be executed in
+  -o, --output-dir=<value>         [default: ./artifacts] Path to the folder where all built `.node` files put
+      --npm-dir=<value>            [default: npm] Path to the folder where the npm packages put
+      --package-json-path=<value>  [default: package.json] Path to `package.json`
 
 DESCRIPTION
   处理下载下来的 Artifacts
 
 EXAMPLES
-  $ oex hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
+  $ ftajs artifacts
+  artifacts successfully processed!
 ```
 
-_See code: [src/commands/artifacts/index.ts](https://github.com/kkaaddff/ftajs-cli/blob/v0.0.0/src/commands/artifacts/index.ts)_
+_See code: [src/commands/artifacts/index.ts](https://github.com/kkaaddff/ftajs-cli/blob/v0.0.1/src/commands/artifacts/index.ts)_
 
 ## `ftajs hello PERSON`
 
@@ -86,29 +88,11 @@ DESCRIPTION
   Say hello
 
 EXAMPLES
-  $ oex hello friend --from oclif
+  $ ftajs hello friend --from oclif
   hello friend from oclif! (./src/commands/hello/index.ts)
 ```
 
-_See code: [src/commands/hello/index.ts](https://github.com/kkaaddff/ftajs-cli/blob/v0.0.0/src/commands/hello/index.ts)_
-
-## `ftajs hello world`
-
-Say hello world
-
-```
-USAGE
-  $ ftajs hello world
-
-DESCRIPTION
-  Say hello world
-
-EXAMPLES
-  $ ftajs hello world
-  hello world! (./src/commands/hello/world.ts)
-```
-
-_See code: [src/commands/hello/world.ts](https://github.com/kkaaddff/ftajs-cli/blob/v0.0.0/src/commands/hello/world.ts)_
+_See code: [src/commands/hello/index.ts](https://github.com/kkaaddff/ftajs-cli/blob/v0.0.1/src/commands/hello/index.ts)_
 
 ## `ftajs help [COMMANDS]`
 
@@ -188,7 +172,7 @@ ALIASES
   $ ftajs plugins add
 
 EXAMPLES
-  $ ftajs plugins add myplugin
+  $ ftajs plugins add myplugin 
 
   $ ftajs plugins add https://github.com/someuser/someplugin
 
@@ -257,7 +241,7 @@ ALIASES
   $ ftajs plugins add
 
 EXAMPLES
-  $ ftajs plugins install myplugin
+  $ ftajs plugins install myplugin 
 
   $ ftajs plugins install https://github.com/someuser/someplugin
 
@@ -404,5 +388,4 @@ DESCRIPTION
 ```
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v4.1.16/src/commands/plugins/update.ts)_
-
 <!-- commandsstop -->
