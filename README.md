@@ -7,14 +7,16 @@ ftajs cli
 [![GitHub license](https://img.shields.io/github/license/oclif/hello-world)](https://github.com/oclif/hello-world/blob/main/LICENSE)
 
 <!-- toc -->
-* [ftajs cli](#ftajs-cli)
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [ftajs cli](#ftajs-cli)
+- [Usage](#usage)
+- [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
+
 ```sh-session
 $ npm install -g @ftajs/cli
 $ ftajs COMMAND
@@ -26,25 +28,27 @@ USAGE
   $ ftajs COMMAND
 ...
 ```
+
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-* [`ftajs artifacts`](#ftajs-artifacts)
-* [`ftajs hello PERSON`](#ftajs-hello-person)
-* [`ftajs hello world`](#ftajs-hello-world)
-* [`ftajs help [COMMANDS]`](#ftajs-help-commands)
-* [`ftajs plugins`](#ftajs-plugins)
-* [`ftajs plugins:install PLUGIN...`](#ftajs-pluginsinstall-plugin)
-* [`ftajs plugins:inspect PLUGIN...`](#ftajs-pluginsinspect-plugin)
-* [`ftajs plugins:install PLUGIN...`](#ftajs-pluginsinstall-plugin-1)
-* [`ftajs plugins:link PLUGIN`](#ftajs-pluginslink-plugin)
-* [`ftajs plugins:uninstall PLUGIN...`](#ftajs-pluginsuninstall-plugin)
-* [`ftajs plugins reset`](#ftajs-plugins-reset)
-* [`ftajs plugins:uninstall PLUGIN...`](#ftajs-pluginsuninstall-plugin-1)
-* [`ftajs plugins:uninstall PLUGIN...`](#ftajs-pluginsuninstall-plugin-2)
-* [`ftajs plugins update`](#ftajs-plugins-update)
+
+- [`ftajs artifacts`](#ftajs-artifacts)
+- [`ftajs hello PERSON`](#ftajs-hello-person)
+- [`ftajs hello world`](#ftajs-hello-world)
+- [`ftajs help [COMMANDS]`](#ftajs-help-commands)
+- [`ftajs plugins`](#ftajs-plugins)
+- [`ftajs plugins:install PLUGIN...`](#ftajs-pluginsinstall-plugin)
+- [`ftajs plugins:inspect PLUGIN...`](#ftajs-pluginsinspect-plugin)
+- [`ftajs plugins:install PLUGIN...`](#ftajs-pluginsinstall-plugin-1)
+- [`ftajs plugins:link PLUGIN`](#ftajs-pluginslink-plugin)
+- [`ftajs plugins:uninstall PLUGIN...`](#ftajs-pluginsuninstall-plugin)
+- [`ftajs plugins reset`](#ftajs-plugins-reset)
+- [`ftajs plugins:uninstall PLUGIN...`](#ftajs-pluginsuninstall-plugin-1)
+- [`ftajs plugins:uninstall PLUGIN...`](#ftajs-pluginsuninstall-plugin-2)
+- [`ftajs plugins update`](#ftajs-plugins-update)
 
 ## `ftajs artifacts`
 
@@ -184,7 +188,7 @@ ALIASES
   $ ftajs plugins add
 
 EXAMPLES
-  $ ftajs plugins add myplugin 
+  $ ftajs plugins add myplugin
 
   $ ftajs plugins add https://github.com/someuser/someplugin
 
@@ -253,7 +257,7 @@ ALIASES
   $ ftajs plugins add
 
 EXAMPLES
-  $ ftajs plugins install myplugin 
+  $ ftajs plugins install myplugin
 
   $ ftajs plugins install https://github.com/someuser/someplugin
 
@@ -400,4 +404,5 @@ DESCRIPTION
 ```
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v4.1.16/src/commands/plugins/update.ts)_
+
 <!-- commandsstop -->

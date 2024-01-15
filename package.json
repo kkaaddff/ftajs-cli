@@ -1,18 +1,34 @@
 {
+  "name": "@ftajs/cli",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "author": "qicheng.zhang @kkaaddff",
+  "description": "A CLI for FTA Product by AMH-Group",
   "bin": {
-    "ftajscli": "./bin/run.js"
+    "ftajs": "./bin/run.js"
+  },
+  "scripts": {
+    "build": "shx rm -rf dist && tsc -b",
+    "lint": "eslint . --ext .ts",
+    "postpack": "shx rm -f oclif.manifest.json",
+    "posttest": "yarn lint",
+    "prepack": "yarn build && oclif manifest && oclif readme",
+    "prepare": "yarn build",
+    "test": "mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif readme && git add README.md"
   },
   "dependencies": {
     "@oclif/core": "^3",
     "@oclif/plugin-help": "^6",
-    "@oclif/plugin-plugins": "^4"
+    "@oclif/plugin-plugins": "^4",
+    "fs-extra": "^11.2.0"
   },
-  "description": "oclif example Hello World CLI",
   "devDependencies": {
     "@oclif/prettier-config": "^0.2.1",
     "@oclif/test": "^3",
     "@types/chai": "^4",
+    "@types/fs-extra": "^11.0.4",
     "@types/mocha": "^9.0.0",
     "@types/node": "^18",
     "chai": "^4",
@@ -34,13 +50,9 @@
     "/dist",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/kkaaddff/ftajscli",
-  "license": "MIT",
-  "main": "dist/index.js",
-  "name": "ftajscli",
   "oclif": {
-    "bin": "ftajscli",
-    "dirname": "ftajscli",
+    "bin": "ftajs",
+    "dirname": "ftajs",
     "commands": "./dist/commands",
     "plugins": [
       "@oclif/plugin-help",
@@ -48,26 +60,17 @@
     ],
     "topicSeparator": " ",
     "topics": {
-      "hello": {
-        "description": "Say hello to the world and others"
+      "artifacts": {
+        "description": "Manage Artifacts"
       }
     }
   },
-  "repository": "kkaaddff/ftajscli",
-  "scripts": {
-    "build": "shx rm -rf dist && tsc -b",
-    "lint": "eslint . --ext .ts",
-    "postpack": "shx rm -f oclif.manifest.json",
-    "posttest": "yarn lint",
-    "prepack": "yarn build && oclif manifest && oclif readme",
-    "prepare": "yarn build",
-    "test": "mocha --forbid-only \"test/**/*.test.ts\"",
-    "version": "oclif readme && git add README.md"
-  },
-  "version": "0.0.0",
+  "repository": "kkaaddff/ftajs-cli",
+  "homepage": "https://github.com/kkaaddff/ftajs-cli",
+  "license": "MIT",
   "bugs": "https://github.com/kkaaddff/ftajscli/issues",
   "keywords": [
-    "oclif"
-  ],
-  "types": "dist/index.d.ts"
+    "FTA",
+    "ftajs"
+  ]
 }
