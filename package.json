@@ -1,6 +1,6 @@
 {
   "name": "@ftajs/cli",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "qicheng.zhang @kkaaddff",
@@ -23,7 +23,8 @@
     "@oclif/core": "^3",
     "@oclif/plugin-help": "^6",
     "@oclif/plugin-plugins": "^4",
-    "fs-extra": "^11.2.0"
+    "fs-extra": "^11.2.0",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@oclif/prettier-config": "^0.2.1",

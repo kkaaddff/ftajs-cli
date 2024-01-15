@@ -46,7 +46,7 @@ async function collectArtifacts(userOptions: TUserOptions) {
     const platformArchABI = terms.pop()
     const _binaryName = terms.join('.')
 
-    if (_binaryName !== binaryName) {
+    if (!binaryName.includes(_binaryName)) {
       console.warn(`[${_binaryName}] is not matched with [${binaryName}], skip`)
       return
     }
@@ -115,6 +115,6 @@ artifacts successfully processed!
       npmDir: npmDir,
     })
 
-    this.log(`hello ${flags.from}! (./src/commands/artifacts/index.ts)`)
+    this.log('\n artifacts successfully processed!')
   }
 }

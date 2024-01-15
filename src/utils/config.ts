@@ -18,7 +18,7 @@ export interface UserNapiConfig {
   /**
    * Name of the binary to be generated, default to `index`
    */
-  binaryName?: string
+  binaryName?: string[]
   /**
    * Name of the npm package, default to the name of root package.json name
    *
@@ -39,31 +39,8 @@ export interface UserNapiConfig {
    * Whether generate const enum for typescript bindings
    */
   constEnum?: boolean
-
-  /**
-   * @deprecated binaryName instead
-   */
-  name?: string
-  /**
-   * @deprecated use packageName instead
-   */
-  package?: {
-    name?: string
-  }
-  /**
-   * @deprecated use targets instead
-   */
-  triples?: {
-    /**
-     * Whether enable default targets
-     */
-    defaults: boolean
-    /**
-     * Additional targets to be compiled for
-     */
-    additional?: string[]
-  }
 }
+
 export interface CommonPackageJsonFields {
   name: string
   version: string
@@ -138,7 +115,7 @@ export function readNapiConfig(path: string, configPath?: string): NapiConfig {
   }
   const napiConfig = merge(
     {
-      binaryName: 'index',
+      binaryName: ['index'],
       packageName: pkgJson.name,
       targets: [],
       packageJson: pkgJson,
@@ -150,27 +127,7 @@ export function readNapiConfig(path: string, configPath?: string): NapiConfig {
   let targets = userNapiConfig.targets ?? []
 
   // compatible with old config
-  if (userNapiConfig?.name) {
-    console.warn('[DEPRECATED] napi.name is deprecated, use napi.binaryName instead.')
-    napiConfig.binaryName = userNapiConfig.name
-  }
-
-  if (!targets.length) {
-    let deprecatedWarned = false
-    const warning = '[DEPRECATED] napi.triples is deprecated, use napi.targets instead.'
-    if (userNapiConfig.triples?.defaults) {
-      deprecatedWarned = true
-      console.warn(warning)
-      targets = targets.concat(DEFAULT_TARGETS)
-    }
-
-    if (userNapiConfig.triples?.additional?.length) {
-      targets = targets.concat(userNapiConfig.triples.additional)
-      if (!deprecatedWarned) {
-        console.warn(warning)
-      }
-    }
-  }
+  napiConfig.binaryName = userNapiConfig.binaryName
 
   napiConfig.targets = targets.map(parseTriple)
 

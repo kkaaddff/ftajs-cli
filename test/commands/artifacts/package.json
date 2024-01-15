@@ -1,11 +1,13 @@
 {
   "napi": {
-    "name": "qjsc",
-    "triples": {
-      "additional": [
-        "aarch64-apple-darwin",
-        "aarch64-unknown-linux-gnu"
-      ]
-    }
+    "binaryName": [
+      "qjsc",
+      "qjsc3"
+    ],
+    "targets": [
+      "x86_64-apple-darwin",
+      "aarch64-apple-darwin",
+      "x86_64-unknown-linux-gnu"
+    ]
   }
 }
