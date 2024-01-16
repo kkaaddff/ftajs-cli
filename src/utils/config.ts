@@ -1,5 +1,6 @@
-import { existsSync, readFileSync } from 'fs-extra'
+import { existsSync, readFileSync, writeFileSync, writeJSONSync } from 'fs-extra'
 import { merge, omit } from 'lodash'
+import { CommonPackageJsonFields, UserNapiConfig } from '../types'
 import type { Target } from './triple'
 import { parseTriple } from './triple'
 
@@ -12,65 +13,6 @@ export const DEFAULT_TARGETS = [
 
 export const UniArchsByPlatform = {
   darwin: ['x64', 'arm64'],
-}
-
-export interface UserNapiConfig {
-  /**
-   * Name of the binary to be generated, default to `index`
-   */
-  binaryName?: string[]
-  /**
-   * Name of the npm package, default to the name of root package.json name
-   *
-   * Always given `@scope/pkg` and arch suffix will be appended like `@scope/pkg-linux-gnu-x64`
-   */
-  packageName?: string
-  /**
-   * All targets the crate will be compiled for
-   */
-  targets?: string[]
-
-  /**
-   * The npm client project uses.
-   */
-  npmClient?: string
-
-  /**
-   * Whether generate const enum for typescript bindings
-   */
-  constEnum?: boolean
-}
-
-export interface CommonPackageJsonFields {
-  name: string
-  version: string
-  description?: string
-  keywords?: string[]
-  author?: string
-  authors?: string[]
-  license?: string
-  repository?: any
-  homepage?: any
-  engines?: Record<string, string>
-  publishConfig?: any
-  bugs?: any
-  // eslint-disable-next-line no-use-before-define
-  napi?: UserNapiConfig
-  type?: 'module' | 'commonjs'
-  scripts?: Record<string, string>
-
-  // modules
-  main?: string
-  module?: string
-  types?: string
-  exports?: any
-
-  dependencies?: Record<string, string>
-  devDependencies?: Record<string, string>
-
-  ava?: {
-    timeout?: string
-  }
 }
 
 export type NapiConfig = Required<Pick<UserNapiConfig, 'binaryName' | 'packageName' | 'npmClient'>> & {
@@ -132,4 +74,13 @@ export function readNapiConfig(path: string, configPath?: string): NapiConfig {
   napiConfig.targets = targets.map(parseTriple)
 
   return napiConfig
+}
+
+export function updatePackageJson(path: string, partial: Record<string, any>) {
+  const exists = existsSync(path)
+  if (!exists) {
+    return
+  }
+  const old = require(path)
+  writeJSONSync(path, { ...old, ...partial })
 }
