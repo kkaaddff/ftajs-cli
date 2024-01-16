@@ -10,16 +10,14 @@ ftajs cli
 [![GitHub license](https://img.shields.io/github/license/oclif/hello-world)](https://github.com/oclif/hello-world/blob/main/LICENSE)
 
 <!-- toc -->
-
-- [ftajs cli](#ftajs-cli)
-- [Usage](#usage)
-- [Commands](#commands)
+* [ftajs cli](#ftajs-cli)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g @ftajs/cli
 $ ftajs COMMAND
@@ -31,26 +29,25 @@ USAGE
   $ ftajs COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
-- [`ftajs artifacts`](#ftajs-artifacts)
-- [`ftajs hello PERSON`](#ftajs-hello-person)
-- [`ftajs help [COMMANDS]`](#ftajs-help-commands)
-- [`ftajs plugins`](#ftajs-plugins)
-- [`ftajs plugins:install PLUGIN...`](#ftajs-pluginsinstall-plugin)
-- [`ftajs plugins:inspect PLUGIN...`](#ftajs-pluginsinspect-plugin)
-- [`ftajs plugins:install PLUGIN...`](#ftajs-pluginsinstall-plugin-1)
-- [`ftajs plugins:link PLUGIN`](#ftajs-pluginslink-plugin)
-- [`ftajs plugins:uninstall PLUGIN...`](#ftajs-pluginsuninstall-plugin)
-- [`ftajs plugins reset`](#ftajs-plugins-reset)
-- [`ftajs plugins:uninstall PLUGIN...`](#ftajs-pluginsuninstall-plugin-1)
-- [`ftajs plugins:uninstall PLUGIN...`](#ftajs-pluginsuninstall-plugin-2)
-- [`ftajs plugins update`](#ftajs-plugins-update)
+* [`ftajs artifacts`](#ftajs-artifacts)
+* [`ftajs hello PERSON`](#ftajs-hello-person)
+* [`ftajs help [COMMANDS]`](#ftajs-help-commands)
+* [`ftajs plugins`](#ftajs-plugins)
+* [`ftajs plugins:install PLUGIN...`](#ftajs-pluginsinstall-plugin)
+* [`ftajs plugins:inspect PLUGIN...`](#ftajs-pluginsinspect-plugin)
+* [`ftajs plugins:install PLUGIN...`](#ftajs-pluginsinstall-plugin-1)
+* [`ftajs plugins:link PLUGIN`](#ftajs-pluginslink-plugin)
+* [`ftajs plugins:uninstall PLUGIN...`](#ftajs-pluginsuninstall-plugin)
+* [`ftajs plugins reset`](#ftajs-plugins-reset)
+* [`ftajs plugins:uninstall PLUGIN...`](#ftajs-pluginsuninstall-plugin-1)
+* [`ftajs plugins:uninstall PLUGIN...`](#ftajs-pluginsuninstall-plugin-2)
+* [`ftajs plugins update`](#ftajs-plugins-update)
+* [`ftajs prepublish`](#ftajs-prepublish)
 
 ## `ftajs artifacts`
 
@@ -179,7 +176,7 @@ ALIASES
   $ ftajs plugins add
 
 EXAMPLES
-  $ ftajs plugins add myplugin
+  $ ftajs plugins add myplugin 
 
   $ ftajs plugins add https://github.com/someuser/someplugin
 
@@ -248,7 +245,7 @@ ALIASES
   $ ftajs plugins add
 
 EXAMPLES
-  $ ftajs plugins install myplugin
+  $ ftajs plugins install myplugin 
 
   $ ftajs plugins install https://github.com/someuser/someplugin
 
@@ -396,4 +393,34 @@ DESCRIPTION
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v4.1.16/src/commands/plugins/update.ts)_
 
+## `ftajs prepublish`
+
+Update package.json and copy addons into per platform packages
+
+```
+USAGE
+  $ ftajs prepublish [-c <value>] [--package-json-path <value>] [--config-path <value>] [-p <value>] [-t
+    <value>] [--gh-release] [--gh-release-name <value>] [--gh-release-id <value>] [--dry-run]
+
+FLAGS
+  -c, --cwd=<value>                [default: /Users/qiczhang/Documents/ymm2021/fta/cli-ftajs] The working directory of
+                                   where napi command will be executed in
+  -p, --npm-dir=<value>            [default: npm] Path to the folder where the npm packages put
+  -t, --tag-style=<value>          [default: lerna] git tag style, `npm` or `lerna`
+      --config-path=<value>        Path to `napi` config json file
+      --dry-run                    Dry run without touching file system
+      --gh-release                 Whether create GitHub release
+      --gh-release-id=<value>      Existing GitHub release id
+      --gh-release-name=<value>    GitHub release name
+      --package-json-path=<value>  [default: package.json] Path to `package.json`
+
+DESCRIPTION
+  Update package.json and copy addons into per platform packages
+
+EXAMPLES
+  $ ftajs prepublish 
+  hello friend from oclif! (./src/commands/hello/index.ts)
+```
+
+_See code: [src/commands/prepublish/index.ts](https://github.com/kkaaddff/ftajs-cli/blob/v0.0.1/src/commands/prepublish/index.ts)_
 <!-- commandsstop -->
