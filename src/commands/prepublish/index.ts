@@ -177,13 +177,9 @@ function parseTag(tag: string) {
 }
 
 export default class PrePublish extends Command {
-  static description = 'Update package.json and copy addons into per platform packages'
+  static description = '更新 package.json 文件并 将 二进制组件 复制到每个平台的包中。'
 
-  static examples = [
-    `$ ftajs prepublish 
-hello friend from oclif! (./src/commands/hello/index.ts)
-`,
-  ]
+  static examples = [`$ ftajs prepublish -c ./ -p ./npm -t npm`]
 
   static flags = {
     cwd: Flags.string({
