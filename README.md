@@ -10,38 +10,33 @@ ftajs cli
 [![GitHub license](https://img.shields.io/github/license/oclif/hello-world)](https://github.com/oclif/hello-world/blob/main/LICENSE)
 
 <!-- toc -->
-
-- [ftajs cli](#ftajs-cli)
-- [Usage](#usage)
-- [Commands](#commands)
+* [ftajs cli](#ftajs-cli)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g @ftajs/cli
 $ ftajs COMMAND
 running command...
 $ ftajs (--version)
-@ftajs/cli/0.0.2 darwin-arm64 node-v18.17.1
+@ftajs/cli/0.0.3 darwin-arm64 node-v16.19.1
 $ ftajs --help [COMMAND]
 USAGE
   $ ftajs COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
-- [`ftajs artifacts`](#ftajs-artifacts)
-- [`ftajs hello PERSON`](#ftajs-hello-person)
-- [`ftajs help [COMMANDS]`](#ftajs-help-commands)
-- [`ftajs prepublish`](#ftajs-prepublish)
+* [`ftajs artifacts`](#ftajs-artifacts)
+* [`ftajs help [COMMAND]`](#ftajs-help-command)
+* [`ftajs prepublish`](#ftajs-prepublish)
 
 ## `ftajs artifacts`
 
@@ -66,51 +61,27 @@ EXAMPLES
   artifacts successfully processed!
 ```
 
-_See code: [src/commands/artifacts/index.ts](https://github.com/kkaaddff/ftajs-cli/blob/v0.0.2/src/commands/artifacts/index.ts)_
+_See code: [src/commands/artifacts/index.ts](https://github.com/kkaaddff/ftajs-cli/blob/v0.0.3/src/commands/artifacts/index.ts)_
 
-## `ftajs hello PERSON`
+## `ftajs help [COMMAND]`
 
-Say hello
-
-```
-USAGE
-  $ ftajs hello PERSON -f <value>
-
-ARGUMENTS
-  PERSON  Person to say hello to
-
-FLAGS
-  -f, --from=<value>  (required) Who is saying hello
-
-DESCRIPTION
-  Say hello
-
-EXAMPLES
-  $ ftajs hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
-```
-
-_See code: [src/commands/hello/index.ts](https://github.com/kkaaddff/ftajs-cli/blob/v0.0.2/src/commands/hello/index.ts)_
-
-## `ftajs help [COMMANDS]`
-
-Display help for ftajs.
+display help for ftajs
 
 ```
 USAGE
-  $ ftajs help [COMMANDS] [-n]
+  $ ftajs help [COMMAND] [--all]
 
 ARGUMENTS
-  COMMANDS  Command to show help for.
+  COMMAND  command to show help for
 
 FLAGS
-  -n, --nested-commands  Include all nested commands in the output.
+  --all  see all commands in CLI
 
 DESCRIPTION
-  Display help for ftajs.
+  display help for ftajs
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.0.12/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.3.1/src/commands/help.ts)_
 
 ## `ftajs prepublish`
 
@@ -140,6 +111,5 @@ EXAMPLES
   $ ftajs prepublish -c ./ -p ./npm -t npm
 ```
 
-_See code: [src/commands/prepublish/index.ts](https://github.com/kkaaddff/ftajs-cli/blob/v0.0.2/src/commands/prepublish/index.ts)_
-
+_See code: [src/commands/prepublish/index.ts](https://github.com/kkaaddff/ftajs-cli/blob/v0.0.3/src/commands/prepublish/index.ts)_
 <!-- commandsstop -->
